@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MG Innovation</title>
+
     <style>
         body, html {
             margin: 0;
@@ -78,6 +79,38 @@
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.8.1/build/spline-viewer.js"></script>
     
     <spline-viewer url="https://prod.spline.design/nsINiC0FgNWFrNLf/scene.splinecode"></spline-viewer>
+
+    <script>
+        // setTimeout(() => {
+        // const splineContainer = document.querySelector('spline-viewer');
+        // const logoEl = splineContainer.shadowRoot.querySelector('#logo');
+        // logoEl.remove();
+        // }, 200);
+        //console.log('I AM HERE')
+
+        const remRecur = async () => {
+            const sleep = async (time) => new Promise((resolve) => setTimeout(() => {
+                console.log('I ITERATE')
+                resolve()
+            }, time));
+
+            let iterCount = 0;
+            const MAX_ITER = 50;
+            while(iterCount < MAX_ITER) {
+                const splineContainer = document.querySelector('spline-viewer');
+                if (splineContainer) {
+                    const logoEl = splineContainer?.shadowRoot?.querySelector('#logo');
+                    if (logoEl) {
+                        logoEl.remove();
+                        break;
+                    }
+                    await sleep(10)
+                }
+                await sleep(10)
+            }
+        }
+        remRecur()
+    </script>
 
     <button class="button" onclick="redirectToLogin()"><span>SZN Portal</span></button>
 

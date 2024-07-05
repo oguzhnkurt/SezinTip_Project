@@ -10,78 +10,87 @@
 
     <!-- Main charts -->
     <div class="row">
-        <div class="col-xl-7">
+    
 
             <html lang="tr">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Çekim İstatistikleri</title>
-                    <style>
-                        .highlighted {
-                            color: red;
-                            font-family: 'Arial', sans-serif; /* İstediğiniz fontu buraya yazın */
-                            font-weight: bold; /* İsteğe bağlı: Yazıyı kalın yapar */
-                        }
-                    </style>
-                    <style>
-                        .highlighted2 {
-                            color: rgb(19, 226, 30);
-                            font-family: 'Arial', sans-serif; /* İstediğiniz fontu buraya yazın */
-                            font-weight: bold; /* İsteğe bağlı: Yazıyı kalın yapar */
-                        }
-                    </style>
-                </head>
-                <body>
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Çekim İstatistikleri</title>
+                <style>
+                    .highlighted {
+                        padding: 8px 14px;
+                        color: rgb(255, 87, 34);
+                        font-family: 'Arial', sans-serif;
+                        /* İstediğiniz fontu buraya yazın */
+                        font-weight: bold;
+                        /* İsteğe bağlı: Yazıyı kalın yapar */
+                    }
+                </style>
+                <style>
+                    .highlighted2 {
+                        padding: 8px 14px;
+                        color: rgb(76, 175, 80);
+                        font-family: 'Arial', sans-serif;
+                        /* İstediğiniz fontu buraya yazın */
+                        font-weight: bold;
+                        /* İsteğe bağlı: Yazıyı kalın yapar */
+                    }
+                </style>
+            </head>
+
+            <body>
 
         </div>
 
-        <div class="col-xl-5">
+        <div class="col-xl-12">
 
             <!-- Sales stats -->
-<div class="card">
-    <div class="card-header d-sm-flex align-items-sm-center py-sm-0">
-        <h5 class="py-sm-2 my-sm-1">Çekim İstatistikleri</h5>
-        <div class="mt-2 mt-sm-0 ms-sm-auto">
-            <select class="form-select" id="select_date">
-                <option value="val1" class="highlighted2" >-Adana 5 Ocak- Haziran, 1 - Temmuz, 1</option>
-                <option value="val2" class="highlighted2">-Beyhekim MR- June, 22 - June 28</option>
-                <option value="val3" class="highlighted" selected>Gazi Osman Paşa Haziran, 15 - Temmuz, 15</option>
-                <option value="val4" class="highlighted2">-Yüreğir MR- June, 8 - June, 14</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="card-body pb-0">
-        <div class="row text-center">
-            <div class="col-4">
-                <div class="mb-3">
-                    <h5 class="mb-0">2985</h5>
-                    <div class="text-muted fs-sm">Hedef</div>
+            <div class="card">
+                <div class="card-header d-sm-flex align-items-sm-center py-sm-0">
+                    <h5 class="py-sm-2 my-sm-1">Çekim İstatistikleri</h5>
+                    <div class="mt-2 mt-sm-0 ms-sm-auto">
+                        <select class="form-select" id="select_date">
+                            <option value="val1" class="highlighted2">-Adana 5 Ocak- Haziran, 1 - Temmuz, 1</option>
+                            <option value="val2" class="highlighted2">-Beyhekim MR- June, 22 - June 28</option>
+                            <option value="val3" class="highlighted" selected>Gazi Osman Paşa Haziran, 15 - Temmuz, 15
+                            </option>
+                            <option value="val4" class="highlighted2">-Yüreğir MR- June, 8 - June, 14</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-4">
-                <div class="mb-3">
-                    <h5 class="mb-0">32,568</h5>
-                    <div class="text-muted fs-sm">Bu ay</div>
+                <div class="card-body pb-0">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <h5 class="mb-0">2985</h5>
+                                <div class="text-muted fs-sm">Hedef (Günlük) </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <h5 class="mb-0">32,568</h5>
+                                <div class="text-muted fs-sm">Bu ay</div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <h5 class="mb-0">$23,464</h5>
+                                <div class="text-muted fs-sm">Beklenen Kazanç</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-4">
-                <div class="mb-3">
-                    <h5 class="mb-0">$23,464</h5>
-                    <div class="text-muted fs-sm">Beklenen Kazanç</div>
-                </div>
+                <div class="chart mb-2" id="app_sales"></div>
+                <div class="chart" id="monthly-sales-stats"></div>
             </div>
-        </div>
-    </div>
+            <!-- /sales stats -->
 
-    <div class="chart mb-2" id="app_sales"></div>
-    <div class="chart" id="monthly-sales-stats"></div>
-</div>
-<!-- /sales stats -->
- 
 
 
             <!-- Traffic sources -->
@@ -105,7 +114,7 @@
                                 </a>
                                 <div>
                                     <div class="fw-semibold">Yeni İşe Başlayan</div>
-                                    <span class="text-muted">23 </span>
+                                    <span class="text-muted">13 </span>
                                 </div>
                             </div>
                             <div class="w-75 mx-auto mb-3" id="new-visitors"></div>
@@ -118,7 +127,7 @@
                                 </a>
                                 <div>
                                     <div class="fw-semibold">İşe Giriş Saatleri</div>
-                                    <span class="text-muted">08:20 avg</span>
+                                    <span class="text-muted">08:25 ortalama</span>
                                 </div>
                             </div>
                             <div class="w-75 mx-auto mb-3" id="new-sessions"></div>
@@ -131,7 +140,7 @@
                                 </a>
                                 <div>
                                     <div class="fw-semibold">Personel Toplam Sayısı</div>
-                                    <span class="text-muted">578 </span>
+                                    <span class="text-muted">394 </span>
                                 </div>
                             </div>
                             <div class="w-75 mx-auto mb-3" id="total-online"></div>
@@ -174,7 +183,8 @@
                             </div>
                         </div>
                         <div class="flex-fill">
-                            Haziran ayına istinaden : İstatistikler <span class="fw-semibold">250.478</span> çekim (Toplam), $10.000.000 hasılat
+                            Haziran ayına istinaden : İstatistikler <span class="fw-semibold">250.478</span> çekim
+                            (Toplam), $10.000.000 hasılat
                             <div class="text-muted fs-sm">2 hours ago</div>
                         </div>
                     </div>
@@ -199,7 +209,7 @@
                         </div>
                         <div class="flex-fill">
                             DYS Şirket içi talepler onaylandı <a href="#">(Mesut Göçer)
-                            <div class="text-muted fs-sm">36 dakika önce</div>
+                                <div class="text-muted fs-sm">36 dakika önce</div>
                         </div>
                     </div>
 
@@ -238,7 +248,8 @@
                     <div class="d-inline-flex ms-auto">
                         <span class="badge bg-success rounded-pill">28 active</span>
                         <div class="dropdown d-inline-flex ms-3">
-                            <a href="#" class="text-body d-inline-flex align-items-center dropdown-toggle" data-bs-toggle="dropdown">
+                            <a href="#" class="text-body d-inline-flex align-items-center dropdown-toggle"
+                                data-bs-toggle="dropdown">
                                 <i class="ph-gear"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -328,7 +339,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-block me-3">
-                                            <img src="{{URL::asset('assets/images/brands/facebook.svg')}}" class="rounded-circle" width="36" height="36" alt="">
+                                            <img src="{{URL::asset('assets/images/brands/facebook.svg')}}"
+                                                class="rounded-circle" width="36" height="36" alt="">
                                         </a>
                                         <div>
                                             <a href="#" class="text-body fw-semibold">Facebook</a>
@@ -376,7 +388,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-block me-3">
-                                            <img src="{{URL::asset('assets/images/brands/youtube.svg')}}" class="rounded-circle" width="36" height="36" alt="">
+                                            <img src="{{URL::asset('assets/images/brands/youtube.svg')}}"
+                                                class="rounded-circle" width="36" height="36" alt="">
                                         </a>
                                         <div>
                                             <a href="#" class="text-body fw-semibold">Youtube videos</a>
@@ -424,7 +437,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-block me-3">
-                                            <img src="{{URL::asset('assets/images/brands/spotify.svg')}}" class="rounded-circle" width="36" height="36" alt="">
+                                            <img src="{{URL::asset('assets/images/brands/spotify.svg')}}"
+                                                class="rounded-circle" width="36" height="36" alt="">
                                         </a>
                                         <div>
                                             <a href="#" class="text-body fw-semibold">Spotify ads</a>
@@ -472,7 +486,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-block me-3">
-                                            <img src="{{URL::asset('assets/images/brands/twitter.svg')}}" class="rounded-circle" width="36" height="36" alt="">
+                                            <img src="{{URL::asset('assets/images/brands/twitter.svg')}}"
+                                                class="rounded-circle" width="36" height="36" alt="">
                                         </a>
                                         <div>
                                             <a href="#" class="text-body fw-semibold">Twitter ads</a>
@@ -527,7 +542,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-block me-3">
-                                            <img src="{{URL::asset('assets/images/brands/bing.svg')}}" class="rounded-circle" width="36" height="36" alt="">
+                                            <img src="{{URL::asset('assets/images/brands/bing.svg')}}"
+                                                class="rounded-circle" width="36" height="36" alt="">
                                         </a>
                                         <div>
                                             <a href="#" class="text-body fw-semibold">Bing campaign</a>
@@ -575,7 +591,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-block me-3">
-                                            <img src="{{URL::asset('assets/images/brands/amazon.svg')}}" class="rounded-circle" width="36" height="36" alt="">
+                                            <img src="{{URL::asset('assets/images/brands/amazon.svg')}}"
+                                                class="rounded-circle" width="36" height="36" alt="">
                                         </a>
                                         <div>
                                             <a href="#" class="text-body fw-semibold">Amazon ads</a>
@@ -623,7 +640,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-block me-3">
-                                            <img src="{{URL::asset('assets/images/brands/dribbble.svg')}}" class="rounded-circle" width="36" height="36" alt="">
+                                            <img src="{{URL::asset('assets/images/brands/dribbble.svg')}}"
+                                                class="rounded-circle" width="36" height="36" alt="">
                                         </a>
                                         <div>
                                             <a href="#" class="text-body fw-semibold">Dribbble ads</a>
@@ -683,7 +701,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <h3 class="mb-0">3,450</h3>
-                                <span class="badge bg-black bg-opacity-50 rounded-pill align-self-center ms-auto">+53,6%</span>
+                                <span
+                                    class="badge bg-black bg-opacity-50 rounded-pill align-self-center ms-auto">+53,6%</span>
                             </div>
 
                             <div>
@@ -706,7 +725,8 @@
                             <div class="d-flex align-items-center">
                                 <h3 class="mb-0">49.4%</h3>
                                 <div class="dropdown d-inline-flex ms-auto">
-                                    <a href="#" class="text-white d-inline-flex align-items-center dropdown-toggle" data-bs-toggle="dropdown">
+                                    <a href="#" class="text-white d-inline-flex align-items-center dropdown-toggle"
+                                        data-bs-toggle="dropdown">
                                         <i class="ph-gear"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
@@ -855,11 +875,13 @@
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <a href="#" class="d-inline-flex align-items-center justify-content-center bg-teal text-white lh-1 rounded-pill w-40px h-40px me-3">
+                                        <a href="#"
+                                            class="d-inline-flex align-items-center justify-content-center bg-teal text-white lh-1 rounded-pill w-40px h-40px me-3">
                                             <span class="letter-icon"></span>
                                         </a>
                                         <div>
-                                            <a href="#" class="text-body fw-semibold letter-icon-title">Annabelle Doney</a>
+                                            <a href="#" class="text-body fw-semibold letter-icon-title">Annabelle
+                                                Doney</a>
                                             <div class="d-flex align-items-center text-muted fs-sm">
                                                 <span class="bg-danger rounded-pill p-1 me-2"></span>
                                                 Blocker
@@ -870,7 +892,8 @@
                                 <td>
                                     <a href="#" class="text-body">
                                         <div class="fw-semibold">[#1183] Workaround for OS X selects printing bug</div>
-                                        <span class="text-muted">Chrome fixed the bug several versions ago, thus rendering this...</span>
+                                        <span class="text-muted">Chrome fixed the bug several versions ago, thus
+                                            rendering this...</span>
                                     </a>
                                 </td>
                                 <td class="text-center">
@@ -909,7 +932,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-inline-block me-3">
-                                            <img src="{{URL::asset('assets/images/demo/users/face15.jpg')}}" class="rounded-circle" width="40" height="40" alt="">
+                                            <img src="{{URL::asset('assets/images/demo/users/face15.jpg')}}"
+                                                class="rounded-circle" width="40" height="40" alt="">
                                         </a>
                                         <div>
                                             <a href="#" class="text-body fw-semibold">Chris Macintyre</a>
@@ -923,7 +947,8 @@
                                 <td>
                                     <a href="#" class="text-body">
                                         <div class="fw-semibold">[#1249] Vertically center carousel controls</div>
-                                        <span class="text-muted">Try any carousel control and reduce the screen width below...</span>
+                                        <span class="text-muted">Try any carousel control and reduce the screen width
+                                            below...</span>
                                     </a>
                                 </td>
                                 <td class="text-center">
@@ -961,11 +986,13 @@
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <a href="#" class="d-inline-flex align-items-center justify-content-center bg-primary text-white lh-1 rounded-pill w-40px h-40px me-3">
+                                        <a href="#"
+                                            class="d-inline-flex align-items-center justify-content-center bg-primary text-white lh-1 rounded-pill w-40px h-40px me-3">
                                             <span class="letter-icon"></span>
                                         </a>
                                         <div>
-                                            <a href="#" class="text-body fw-semibold letter-icon-title">Robert Hauber</a>
+                                            <a href="#" class="text-body fw-semibold letter-icon-title">Robert
+                                                Hauber</a>
                                             <div class="d-flex align-items-center text-muted fs-sm">
                                                 <span class="bg-primary rounded-pill p-1 me-2"></span>
                                                 Medium
@@ -976,7 +1003,8 @@
                                 <td>
                                     <a href="#" class="text-body">
                                         <div class="fw-semibold">[#1254] Inaccurate small pagination height</div>
-                                        <span class="text-muted">The height of pagination elements is not consistent with...</span>
+                                        <span class="text-muted">The height of pagination elements is not consistent
+                                            with...</span>
                                     </a>
                                 </td>
                                 <td class="text-center">
@@ -1014,11 +1042,13 @@
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <a href="#" class="d-inline-flex align-items-center justify-content-center bg-warning text-white lh-1 rounded-pill w-40px h-40px me-3">
+                                        <a href="#"
+                                            class="d-inline-flex align-items-center justify-content-center bg-warning text-white lh-1 rounded-pill w-40px h-40px me-3">
                                             <span class="letter-icon"></span>
                                         </a>
                                         <div>
-                                            <a href="#" class="text-body fw-semibold letter-icon-title">Robert Hauber</a>
+                                            <a href="#" class="text-body fw-semibold letter-icon-title">Robert
+                                                Hauber</a>
                                             <div class="d-flex align-items-center text-muted fs-sm">
                                                 <span class="bg-warning rounded-pill p-1 me-2"></span>
                                                 High
@@ -1029,7 +1059,8 @@
                                 <td>
                                     <a href="#" class="text-body">
                                         <div class="fw-semibold">[#1184] Round grid column gutter operations</div>
-                                        <span class="text-muted">Left rounds up, right rounds down. should keep everything...</span>
+                                        <span class="text-muted">Left rounds up, right rounds down. should keep
+                                            everything...</span>
                                     </a>
                                 </td>
                                 <td class="text-center">
@@ -1073,7 +1104,8 @@
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <a href="#" class="d-inline-flex align-items-center justify-content-center bg-success text-white lh-1 rounded-pill w-40px h-40px me-3">
+                                        <a href="#"
+                                            class="d-inline-flex align-items-center justify-content-center bg-success text-white lh-1 rounded-pill w-40px h-40px me-3">
                                             <span class="letter-icon"></span>
                                         </a>
                                         <div>
@@ -1088,7 +1120,8 @@
                                 <td>
                                     <a href="#" class="text-body">
                                         <div>[#1046] Avoid some unnecessary HTML string</div>
-                                        <span class="text-muted">Rather than building a string of HTML and then parsing it...</span>
+                                        <span class="text-muted">Rather than building a string of HTML and then parsing
+                                            it...</span>
                                     </a>
                                 </td>
                                 <td class="text-center">
@@ -1125,11 +1158,13 @@
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <a href="#" class="d-inline-flex align-items-center justify-content-center bg-pink text-white lh-1 rounded-pill w-40px h-40px me-3">
+                                        <a href="#"
+                                            class="d-inline-flex align-items-center justify-content-center bg-pink text-white lh-1 rounded-pill w-40px h-40px me-3">
                                             <span class="letter-icon"></span>
                                         </a>
                                         <div>
-                                            <a href="#" class="text-body fw-semibold letter-icon-title">Brett Castellano</a>
+                                            <a href="#" class="text-body fw-semibold letter-icon-title">Brett
+                                                Castellano</a>
                                             <div class="d-flex align-items-center text-muted fs-sm">
                                                 <span class="bg-success rounded-pill p-1 me-2"></span>
                                                 Low
@@ -1140,7 +1175,8 @@
                                 <td>
                                     <a href="#" class="text-body">
                                         <div>[#1038] Update json configuration</div>
-                                        <span class="text-muted">The <code>files</code> property is necessary to override the files property...</span>
+                                        <span class="text-muted">The <code>files</code> property is necessary to
+                                            override the files property...</span>
                                     </a>
                                 </td>
                                 <td class="text-center">
@@ -1178,7 +1214,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-inline-block me-3">
-                                            <img src="{{URL::asset('assets/images/demo/users/face3.jpg')}}" class="rounded-circle" width="40" height="40" alt="">
+                                            <img src="{{URL::asset('assets/images/demo/users/face3.jpg')}}"
+                                                class="rounded-circle" width="40" height="40" alt="">
                                         </a>
                                         <div>
                                             <a href="#" class="text-body fw-semibold">Roxanne Forbes</a>
@@ -1192,7 +1229,8 @@
                                 <td>
                                     <a href="#" class="text-body">
                                         <div>[#1034] Tooltip multiple event</div>
-                                        <span class="text-muted">Fix behavior when using tooltips and popovers that are...</span>
+                                        <span class="text-muted">Fix behavior when using tooltips and popovers that
+                                            are...</span>
                                     </a>
                                 </td>
                                 <td class="text-center">
@@ -1237,7 +1275,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-inline-block me-3">
-                                            <img src="{{URL::asset('assets/images/demo/users/face8.jpg')}}" class="rounded-circle" width="40" height="40" alt="">
+                                            <img src="{{URL::asset('assets/images/demo/users/face8.jpg')}}"
+                                                class="rounded-circle" width="40" height="40" alt="">
                                         </a>
                                         <div>
                                             <a href="#" class="text-body fw-semibold">Mitchell Sitkin</a>
@@ -1251,7 +1290,8 @@
                                 <td>
                                     <a href="#" class="text-body">
                                         <div>[#1040] Account for static form controls in form group</div>
-                                        <span class="text-muted">Resizes control label's font-size and account for the standard...</span>
+                                        <span class="text-muted">Resizes control label's font-size and account for the
+                                            standard...</span>
                                     </a>
                                 </td>
                                 <td class="text-center">
@@ -1288,11 +1328,13 @@
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <a href="#" class="d-inline-flex align-items-center justify-content-center bg-indigo text-white lh-1 rounded-pill w-40px h-40px me-3">
+                                        <a href="#"
+                                            class="d-inline-flex align-items-center justify-content-center bg-indigo text-white lh-1 rounded-pill w-40px h-40px me-3">
                                             <span class="letter-icon"></span>
                                         </a>
                                         <div>
-                                            <a href="#" class="text-body fw-semibold letter-icon-title">Katleen Jensen</a>
+                                            <a href="#" class="text-body fw-semibold letter-icon-title">Katleen
+                                                Jensen</a>
                                             <div class="d-flex align-items-center text-muted fs-sm">
                                                 <span class="bg-primary rounded-pill p-1 me-2"></span>
                                                 Medium
@@ -1303,7 +1345,8 @@
                                 <td>
                                     <a href="#" class="text-body">
                                         <div>[#1038] Proper sizing of form control feedback</div>
-                                        <span class="text-muted">Feedback icon sizing inside a larger/smaller form-group...</span>
+                                        <span class="text-muted">Feedback icon sizing inside a larger/smaller
+                                            form-group...</span>
                                     </a>
                                 </td>
                                 <td class="text-center">
@@ -1351,37 +1394,47 @@
                         <div class="col-xl-6">
                             <div class="d-sm-flex align-items-sm-start mb-3">
                                 <a href="#" class="d-inline-block position-relative me-sm-3 mb-3 mb-sm-0">
-                                    <img src="{{URL::asset('assets/images/demo/flat/1.png')}}" class="flex-shrink-0 rounded" height="100" alt="">
-                                    <div class="d-inline-flex bg-dark bg-opacity-50 text-white position-absolute start-50 top-50 translate-middle rounded-pill p-2">
+                                    <img src="{{URL::asset('assets/images/demo/flat/1.png')}}"
+                                        class="flex-shrink-0 rounded" height="100" alt="">
+                                    <div
+                                        class="d-inline-flex bg-dark bg-opacity-50 text-white position-absolute start-50 top-50 translate-middle rounded-pill p-2">
                                         <i class="ph-play"></i>
                                     </div>
-                                    <span class="bg-dark bg-opacity-50 text-white fs-xs lh-1 rounded-1 position-absolute bottom-0 start-0 p-1 ms-2 mb-2">12:25</span>
+                                    <span
+                                        class="bg-dark bg-opacity-50 text-white fs-xs lh-1 rounded-1 position-absolute bottom-0 start-0 p-1 ms-2 mb-2">12:25</span>
                                 </a>
 
                                 <div class="flex-fill">
                                     <h6 class="mb-1"><a href="#">Up unpacked friendly</a></h6>
                                     <ul class="list-inline list-inline-bullet text-muted mb-2">
-                                        <li class="list-inline-item"><a href="#" class="text-body">Video tutorials</a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-body">Video tutorials</a>
+                                        </li>
                                     </ul>
-                                    The him father parish looked has sooner. Attachment frequently terminated son hello...
+                                    The him father parish looked has sooner. Attachment frequently terminated son
+                                    hello...
                                 </div>
                             </div>
 
                             <div class="d-sm-flex align-items-sm-start mb-3">
                                 <a href="#" class="d-inline-block position-relative me-sm-3 mb-3 mb-sm-0">
-                                    <img src="{{URL::asset('assets/images/demo/flat/21.png')}}" class="flex-shrink-0 rounded" height="100" alt="">
-                                    <div class="d-inline-flex bg-dark bg-opacity-50 text-white position-absolute start-50 top-50 translate-middle rounded-pill p-2">
+                                    <img src="{{URL::asset('assets/images/demo/flat/21.png')}}"
+                                        class="flex-shrink-0 rounded" height="100" alt="">
+                                    <div
+                                        class="d-inline-flex bg-dark bg-opacity-50 text-white position-absolute start-50 top-50 translate-middle rounded-pill p-2">
                                         <i class="ph-play"></i>
                                     </div>
-                                    <span class="bg-dark bg-opacity-50 text-white fs-xs lh-1 rounded-1 position-absolute bottom-0 start-0 p-1 ms-2 mb-2">47:25</span>
+                                    <span
+                                        class="bg-dark bg-opacity-50 text-white fs-xs lh-1 rounded-1 position-absolute bottom-0 start-0 p-1 ms-2 mb-2">47:25</span>
                                 </a>
 
                                 <div class="flex-fill">
                                     <h6 class="mb-1"><a href="#">It allowance prevailed</a></h6>
                                     <ul class="list-inline list-inline-bullet text-muted mb-2">
-                                        <li class="list-inline-item"><a href="#" class="text-body">Video tutorials</a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-body">Video tutorials</a>
+                                        </li>
                                     </ul>
-                                    Alteration literature to or an sympathize mr imprudence. Of is ferrars subject enjoyed...
+                                    Alteration literature to or an sympathize mr imprudence. Of is ferrars subject
+                                    enjoyed...
                                 </div>
                             </div>
                         </div>
@@ -1389,35 +1442,44 @@
                         <div class="col-xl-6">
                             <div class="d-sm-flex align-items-sm-start mb-3">
                                 <a href="#" class="d-inline-block position-relative me-sm-3 mb-3 mb-sm-0">
-                                    <img src="{{URL::asset('assets/images/demo/flat/12.png')}}" class="flex-shrink-0 rounded" height="100" alt="">
-                                    <div class="d-inline-flex bg-dark bg-opacity-50 text-white position-absolute start-50 top-50 translate-middle rounded-pill p-2">
+                                    <img src="{{URL::asset('assets/images/demo/flat/12.png')}}"
+                                        class="flex-shrink-0 rounded" height="100" alt="">
+                                    <div
+                                        class="d-inline-flex bg-dark bg-opacity-50 text-white position-absolute start-50 top-50 translate-middle rounded-pill p-2">
                                         <i class="ph-play"></i>
                                     </div>
-                                    <span class="bg-dark bg-opacity-50 text-white fs-xs lh-1 rounded-1 position-absolute bottom-0 start-0 p-1 ms-2 mb-2">48:40</span>
+                                    <span
+                                        class="bg-dark bg-opacity-50 text-white fs-xs lh-1 rounded-1 position-absolute bottom-0 start-0 p-1 ms-2 mb-2">48:40</span>
                                 </a>
 
                                 <div class="flex-fill">
                                     <h6 class="mb-1"><a href="#">Case read they must</a></h6>
                                     <ul class="list-inline list-inline-bullet text-muted mb-2">
-                                        <li class="list-inline-item"><a href="#" class="text-body">Video tutorials</a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-body">Video tutorials</a>
+                                        </li>
                                     </ul>
-                                    On it differed repeated wandered required in. Then girl neat why yet knew rose spot...
+                                    On it differed repeated wandered required in. Then girl neat why yet knew rose
+                                    spot...
                                 </div>
                             </div>
 
                             <div class="d-sm-flex align-items-sm-start mb-3">
                                 <a href="#" class="d-inline-block position-relative me-sm-3 mb-3 mb-sm-0">
-                                    <img src="{{URL::asset('assets/images/demo/flat/18.png')}}" class="flex-shrink-0 rounded" height="100" alt="">
-                                    <div class="d-inline-flex bg-dark bg-opacity-50 text-white position-absolute start-50 top-50 translate-middle rounded-pill p-2">
+                                    <img src="{{URL::asset('assets/images/demo/flat/18.png')}}"
+                                        class="flex-shrink-0 rounded" height="100" alt="">
+                                    <div
+                                        class="d-inline-flex bg-dark bg-opacity-50 text-white position-absolute start-50 top-50 translate-middle rounded-pill p-2">
                                         <i class="ph-play"></i>
                                     </div>
-                                    <span class="bg-dark bg-opacity-50 text-white fs-xs lh-1 rounded-1 position-absolute bottom-0 start-0 p-1 ms-2 mb-2">22:14</span>
+                                    <span
+                                        class="bg-dark bg-opacity-50 text-white fs-xs lh-1 rounded-1 position-absolute bottom-0 start-0 p-1 ms-2 mb-2">22:14</span>
                                 </a>
 
                                 <div class="flex-fill">
                                     <h6 class="mb-1"><a href="#">Consider now provided</a></h6>
                                     <ul class="list-inline list-inline-bullet text-muted mb-2">
-                                        <li class="list-inline-item"><a href="#" class="text-body">Video tutorials</a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-body">Video tutorials</a>
+                                        </li>
                                     </ul>
                                     Marianne or husbands if at stronger ye. Considered is as middletons uncommonly...
                                 </div>
@@ -1485,7 +1547,8 @@
                     <div class="d-flex align-items-center ms-auto">
                         <span class="fw-bold text-success">$4,378</span>
                         <div class="dropdown d-inline-flex ms-3">
-                            <a href="#" class="text-body d-inline-flex align-items-center dropdown-toggle" data-bs-toggle="dropdown">
+                            <a href="#" class="text-body d-inline-flex align-items-center dropdown-toggle"
+                                data-bs-toggle="dropdown">
                                 <i class="ph-gear"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -1529,10 +1592,12 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-inline-block me-3">
-                                            <img src="{{URL::asset('assets/images/demo/logos/1.svg')}}" alt="" height="36">
+                                            <img src="{{URL::asset('assets/images/demo/logos/1.svg')}}" alt=""
+                                                height="36">
                                         </a>
                                         <div>
-                                            <a href="#" class="text-body fw-semibold letter-icon-title">Sigma application</a>
+                                            <a href="#" class="text-body fw-semibold letter-icon-title">Sigma
+                                                application</a>
                                             <div class="text-muted fs-sm">New order</div>
                                         </div>
                                     </div>
@@ -1549,10 +1614,12 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-inline-block me-3">
-                                            <img src="{{URL::asset('assets/images/demo/logos/2.svg')}}" alt="" height="36">
+                                            <img src="{{URL::asset('assets/images/demo/logos/2.svg')}}" alt=""
+                                                height="36">
                                         </a>
                                         <div>
-                                            <a href="#" class="text-body fw-semibold letter-icon-title">Alpha application</a>
+                                            <a href="#" class="text-body fw-semibold letter-icon-title">Alpha
+                                                application</a>
                                             <div class="text-muted fs-sm">Renewal</div>
                                         </div>
                                     </div>
@@ -1569,10 +1636,12 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-inline-block me-3">
-                                            <img src="{{URL::asset('assets/images/demo/logos/3.svg')}}" alt="" height="36">
+                                            <img src="{{URL::asset('assets/images/demo/logos/3.svg')}}" alt=""
+                                                height="36">
                                         </a>
                                         <div>
-                                            <a href="#" class="text-body fw-semibold letter-icon-title">Delta application</a>
+                                            <a href="#" class="text-body fw-semibold letter-icon-title">Delta
+                                                application</a>
                                             <div class="text-muted fs-sm">Support</div>
                                         </div>
                                     </div>
@@ -1589,10 +1658,12 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-inline-block me-3">
-                                            <img src="{{URL::asset('assets/images/demo/logos/4.svg')}}" alt="" height="36">
+                                            <img src="{{URL::asset('assets/images/demo/logos/4.svg')}}" alt=""
+                                                height="36">
                                         </a>
                                         <div>
-                                            <a href="#" class="text-body fw-semibold letter-icon-title">Omega application</a>
+                                            <a href="#" class="text-body fw-semibold letter-icon-title">Omega
+                                                application</a>
                                             <div class="text-muted fs-sm">Support</div>
                                         </div>
                                     </div>
@@ -1609,10 +1680,12 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <a href="#" class="d-inline-block me-3">
-                                            <img src="{{URL::asset('assets/images/demo/logos/2.svg')}}" alt="" height="36">
+                                            <img src="{{URL::asset('assets/images/demo/logos/2.svg')}}" alt=""
+                                                height="36">
                                         </a>
                                         <div>
-                                            <a href="#" class="text-body fw-semibold letter-icon-title">Alpha application</a>
+                                            <a href="#" class="text-body fw-semibold letter-icon-title">Alpha
+                                                application</a>
                                             <div class="text-muted fs-sm">Renewal</div>
                                         </div>
                                     </div>
@@ -1702,9 +1775,11 @@
                     <div class="tab-pane active fade show" id="messages-tue">
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face10.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face10.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-success"></span>
-                                <span class="badge bg-yellow text-black position-absolute top-0 start-100 translate-middle rounded-pill">5</span>
+                                <span
+                                    class="badge bg-yellow text-black position-absolute top-0 start-100 translate-middle rounded-pill">5</span>
                             </div>
 
                             <div class="flex-fill">
@@ -1719,9 +1794,11 @@
 
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face3.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face3.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-danger"></span>
-                                <span class="badge bg-yellow text-black position-absolute top-0 start-100 translate-middle rounded-pill">4</span>
+                                <span
+                                    class="badge bg-yellow text-black position-absolute top-0 start-100 translate-middle rounded-pill">4</span>
                             </div>
 
                             <div class="flex-fill">
@@ -1736,7 +1813,8 @@
 
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face24.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face24.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-danger"></span>
                             </div>
 
@@ -1752,7 +1830,8 @@
 
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face4.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face4.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-danger"></span>
                             </div>
 
@@ -1768,7 +1847,8 @@
 
                         <div class="d-flex align-items-start">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face25.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face25.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-success"></span>
                             </div>
 
@@ -1786,7 +1866,8 @@
                     <div class="tab-pane fade" id="messages-mon">
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face2.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face2.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-success"></span>
                             </div>
 
@@ -1802,7 +1883,8 @@
 
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face7.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face7.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-warning"></span>
                             </div>
 
@@ -1818,7 +1900,8 @@
 
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face18.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face18.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-warning"></span>
                             </div>
 
@@ -1834,7 +1917,8 @@
 
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face14.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face14.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-success"></span>
                             </div>
 
@@ -1850,7 +1934,8 @@
 
                         <div class="d-flex align-items-start">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face8.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face8.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-success"></span>
                             </div>
 
@@ -1868,7 +1953,8 @@
                     <div class="tab-pane fade" id="messages-fri">
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face15.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face15.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-danger"></span>
                             </div>
 
@@ -1884,7 +1970,8 @@
 
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face12.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face12.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-warning"></span>
                             </div>
 
@@ -1900,7 +1987,8 @@
 
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face22.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face22.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-danger"></span>
                             </div>
 
@@ -1916,7 +2004,8 @@
 
                         <div class="d-flex align-items-start mb-3">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face24.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face24.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-secondary"></span>
                             </div>
 
@@ -1932,7 +2021,8 @@
 
                         <div class="d-flex align-items-start">
                             <div class="status-indicator-container me-3">
-                                <img src="{{URL::asset('assets/images/demo/users/face17.jpg')}}" class="rounded-circle" width="40" jeight="40" alt="">
+                                <img src="{{URL::asset('assets/images/demo/users/face17.jpg')}}" class="rounded-circle"
+                                    width="40" jeight="40" alt="">
                                 <span class="status-indicator bg-secondary"></span>
                             </div>
 
@@ -1953,7 +2043,7 @@
             <!-- /my messages -->
 
 
-            
+
 
         </div>
     </div>
