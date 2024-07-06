@@ -9,7 +9,7 @@ class Schedule extends Model
 {
     use HasFactory;
 
-    protected $table = 'schedules'; // Tablonun adı
+    protected $table = 'schedules';
 
     protected $fillable = ['title', 'description', 'date'];
 }

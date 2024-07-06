@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 
@@ -10,7 +10,7 @@ class ScheduleController extends Controller
     public function index()
     {
         $schedules = Schedule::all();
-        return view('schedule.index', compact('schedules'));
+        return view('schedule.index', ['schedules' => $schedules]);
     }
 
     public function create()

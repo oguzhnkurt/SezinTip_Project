@@ -1,39 +1,53 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
-    <h1>Schedule</h1>
+    @component('components.breadcrumb')
+        @slot('title') Sezin Akademi @endslot
+        @slot('subtitle') Eğitim Takvimi @endslot
+    @endcomponent
 
-    <a href="{{ route('schedule.create') }}" class="btn btn-primary">Add Schedule</a>
+    <!-- Eğitim Takvimi -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">Eğitim Tarihleri</h5>
+        </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Date</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($schedules as $schedule)
-            <tr>
-                <td>{{ $schedule->id }}</td>
-                <td>{{ $schedule->title }}</td>
-                <td>{{ $schedule->description }}</td>
-                <td>{{ $schedule->date }}</td>
-                <td>
-                    <a href="{{ route('schedule.edit', $schedule->id) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('schedule.destroy', $schedule->id) }}" method="POST" style="display:inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+        <div class="card-body">
+            <form action="{{ route('admin.schedule.update', ['id' => $schedule->id]) }}" method="POST">
+                @csrf
+                @method('PUT')
+
+                <!-- Eğitim takvimi tablosu -->
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Gün</th>
+                                <th>Saat</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($schedules as $schedule)
+                            <tr>
+                                <td>{{ $schedule->day }}</td>
+                                <td>
+                                    <input type="text" name="time" class="form-control" value="{{ $schedule->time }}">
+                                </td>
+                                <td>
+                                    <input type="text" name="link" class="form-control" value="{{ $schedule->link }}">
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /Eğitim Takvimi -->
 @endsection

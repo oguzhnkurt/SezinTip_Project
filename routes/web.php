@@ -17,6 +17,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\MeetingAttendanceController;
 use App\Http\Controllers\LimitlessController;
 
+Route::get('/schedule/index', [ScheduleController::class, 'index'])->name('schedule.index');
 
 // Normal kullanıcılar için erişilebilir route'lar buraya gelecek
 Route::middleware('auth')->group(function () {

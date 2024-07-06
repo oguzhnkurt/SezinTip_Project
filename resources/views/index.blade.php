@@ -23,9 +23,9 @@
                         padding: 8px 14px;
                         color: rgb(255, 87, 34);
                         font-family: 'Arial', sans-serif;
-                        /* İstediğiniz fontu buraya yazın */
+                       
                         font-weight: bold;
-                        /* İsteğe bağlı: Yazıyı kalın yapar */
+                        
                     }
                 </style>
                 <style>
@@ -33,9 +33,9 @@
                         padding: 8px 14px;
                         color: rgb(76, 175, 80);
                         font-family: 'Arial', sans-serif;
-                        /* İstediğiniz fontu buraya yazın */
+                       
                         font-weight: bold;
-                        /* İsteğe bağlı: Yazıyı kalın yapar */
+                       
                     }
                 </style>
             </head>

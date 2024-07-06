@@ -13,6 +13,7 @@
             height: 100%;
             overflow: hidden;
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
         spline-viewer {
             width: 100vw;
@@ -34,44 +35,54 @@
             margin-top: 20px;
             font-size: 18px;
         }
-        .button {
-            border-radius: 4px;
-            background: linear-gradient(45deg, black, red);
-            color: #FFFFFF;
-            text-align: center;
-            font-size: 16px;
-            padding: 10px 20px;
-            width: 150px;
-            transition: all 0.5s;
-            cursor: pointer;
-            margin: 5px;
+        .btn-5 {
             position: fixed;
-            bottom: 20px;
+            bottom: 80px;
             left: 50%;
             transform: translateX(-50%);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1);
-            border: 1px solid #444;
-        }
-        .button span {
+            width: 130px;
+            height: 40px;
+            line-height: 42px;
+            padding: 0;
+            border: none;
+            background: rgb(255,27,0);
+            background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
             cursor: pointer;
-            display: inline-block;
+            color: white;
+            text-align: center;
+            font-size: 16px;
             position: relative;
-            transition: 0.5s;
+            box-sizing: border-box;
+            transition: color 0.4s ease, background 0.4s ease;
+            border-radius: 20px; /* Köşeleri yumuşatmak için */
         }
-        .button span:after {
-            content: '\00bb';
+        .btn-5:hover {
+            color: white;
+            background: linear-gradient(0deg, rgba(255,87,34,1) 0%, rgba(251,75,2,1) 100%);
+            box-shadow: none;
+        }
+        .btn-5:before,
+        .btn-5:after {
+            content: '';
             position: absolute;
-            opacity: 0;
             top: 0;
-            right: -20px;
-            transition: 0.5s;
-        }
-        .button:hover span {
-            padding-right: 25px;
-        }
-        .button:hover span:after {
-            opacity: 1;
             right: 0;
+            height: 2px;
+            width: 0;
+            background: #f0094a;
+            box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003, 4px 4px 5px 0px #0002;
+            transition: 400ms ease all;
+        }
+        .btn-5:after {
+            right: inherit;
+            top: inherit;
+            left: 0;
+            bottom: 0;
+        }
+        .btn-5:hover:before,
+        .btn-5:hover:after {
+            width: 100%;
+            transition: 800ms ease all;
         }
     </style>
 </head>
@@ -81,13 +92,6 @@
     <spline-viewer url="https://prod.spline.design/nsINiC0FgNWFrNLf/scene.splinecode"></spline-viewer>
 
     <script>
-        // setTimeout(() => {
-        // const splineContainer = document.querySelector('spline-viewer');
-        // const logoEl = splineContainer.shadowRoot.querySelector('#logo');
-        // logoEl.remove();
-        // }, 200);
-        //console.log('I AM HERE')
-
         const remRecur = async () => {
             const sleep = async (time) => new Promise((resolve) => setTimeout(() => {
                 console.log('I ITERATE')
@@ -112,7 +116,7 @@
         remRecur()
     </script>
 
-    <button class="button" onclick="redirectToLogin()"><span>SZN Portal</span></button>
+    <button class="btn-5" onclick="redirectToLogin()">SZN Portal</button>
 
     <div class="animated-section">
         <!-- Content of animated section -->
@@ -136,7 +140,7 @@
         });
 
         function redirectToLogin() {
-            window.location.href = "/login";
+            window.location.href = "/index";
         }
     </script>
 </body>
