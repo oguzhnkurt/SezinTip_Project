@@ -1,7 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\ScheduleController;
+use App\Http\Controllers\Admin\ScheduleController as AdminScheduleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CourseController;
@@ -17,26 +16,23 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\MeetingAttendanceController;
 use App\Http\Controllers\LimitlessController;
 
-Route::get('/schedule/index', [ScheduleController::class, 'index'])->name('schedule.index');
-
-// Normal kullanıcılar için erişilebilir route'lar buraya gelecek
-Route::middleware('auth')->group(function () {
-    Route::get('/schedule', [ScheduleController::class, 'index'])->name('schedule.index');
-    Route::get('/schedule/create', [ScheduleController::class, 'create'])->name('schedule.create');
-    Route::post('/schedule', [ScheduleController::class, 'store'])->name('schedule.store');
-    Route::get('/schedule/{id}/edit', [ScheduleController::class, 'edit'])->name('schedule.edit');
-    Route::put('/schedule/{id}', [ScheduleController::class, 'update'])->name('schedule.update');
-    Route::delete('/schedule/{id}', [ScheduleController::class, 'destroy'])->name('schedule.destroy');
+// Admin panel routes
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function() {
+    Route::resource('schedule', AdminScheduleController::class);
+    Route::get('/', [LimitlessController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dashboard', [AdminController::class, 'index']);
+    Route::get('/schedule', [AdminController::class, 'showSchedule'])->name('admin.schedule');
+    Route::post('/schedule/update', [AdminController::class, 'updateSchedule'])->name('admin.schedule.update.post');
 });
 
-// Admin kullanıcılar için erişilebilir route'lar buraya gelecek
-Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
-    Route::get('/schedule', [ScheduleController::class, 'index'])->name('admin.schedule.index');
-    Route::get('/schedule/create', [ScheduleController::class, 'create'])->name('admin.schedule.create');
-    Route::post('/schedule', [ScheduleController::class, 'store'])->name('admin.schedule.store');
-    Route::get('/schedule/{id}/edit', [ScheduleController::class, 'edit'])->name('admin.schedule.edit');
-    Route::put('/schedule/{id}', [ScheduleController::class, 'update'])->name('admin.schedule.update');
-    Route::delete('/schedule/{id}', [ScheduleController::class, 'destroy'])->name('admin.schedule.destroy');
+// Normal kullanıcılar için erişilebilir rotalar
+Route::middleware('auth')->group(function () {
+    Route::get('/schedule', [AdminScheduleController::class, 'index'])->name('schedule.index');
+    Route::get('/schedule/create', [AdminScheduleController::class, 'create'])->name('schedule.create');
+    Route::post('/schedule', [AdminScheduleController::class, 'store'])->name('schedule.store');
+    Route::get('/schedule/{id}/edit', [AdminScheduleController::class, 'edit'])->name('schedule.edit');
+    Route::put('/schedule/update', [AdminScheduleController::class, 'update'])->name('schedule.update');
+    Route::delete('/schedule/{id}', [AdminScheduleController::class, 'destroy'])->name('schedule.destroy');
 });
 
 // Home page route
@@ -44,7 +40,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('homepage');
 
-// Auth routes (Laravel Auth)
 Auth::routes();
 
 // Login routes
@@ -69,16 +64,7 @@ Route::resource('meetingAttendance', MeetingAttendanceController::class);
 // Authenticated user routes
 Route::middleware(['auth'])->group(function () {
 
-    // Admin panel routes
-    Route::middleware('checkAdmin')->group(function () {
-        Route::get('/admin', [LimitlessController::class, 'index'])->name('admin.dashboard');
-        Route::get('/admin/dashboard', [AdminController::class, 'index']);
-
-        // Education schedule routes
-        Route::get('/admin/schedule', [AdminController::class, 'showSchedule'])->name('admin.schedule');
-        Route::post('/admin/schedule/update', [AdminController::class, 'updateSchedule'])->name('admin.schedule.update.post'); // İsim değişikliği
-    });
-
     // Catch-all route for any undefined route under authenticated users
     Route::get('/{any}', [LimitlessController::class, 'index'])->where('any', '.*')->name('catchall');
+
 });

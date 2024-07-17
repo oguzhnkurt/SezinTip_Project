@@ -23,8 +23,9 @@
                     <code>ÖNEMLİ UYARI: Eğitim linki dersten 5 dakika önce "Link" kısmında gözükecektir.</code>
                 </div>
 
-                <form action="{{ route('admin.schedule.update') }}" method="POST">
+                <form method="POST" action="{{ route('schedule.update') }}">
                     @csrf
+                    @method('PUT')
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -35,25 +36,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Pazartesi</td>
-                                    <td>
-                                        <input type="text" name="monday_time" class="form-control" value="{{ $schedule->monday_time ?? '17:30 - 18:45' }}" {{ auth()->user()->hasRole('admin') ? '' : 'readonly' }}>
-                                    </td>
-                                    <td>
-                                        <input type="text" name="monday_link" class="form-control" value="{{ $schedule->monday_link ?? '' }}" {{ auth()->user()->hasRole('admin') ? '' : 'readonly' }}>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Salı</td>
-                                    <td>
-                                        <input type="text" name="tuesday_time" class="form-control" value="{{ $schedule->tuesday_time ?? '16:45 - 17:30' }}" {{ auth()->user()->hasRole('admin') ? '' : 'readonly' }}>
-                                    </td>
-                                    <td>
-                                        <input type="text" name="tuesday_link" class="form-control" value="{{ $schedule->tuesday_link ?? '' }}" {{ auth()->user()->hasRole('admin') ? '' : 'readonly' }}>
-                                    </td>
-                                </tr>
-                                <!-- Diğer günler için de benzer satırlar ekleyin -->
+                                @foreach ($schedules as $schedule)
+                                    <tr>
+                                        <td>{{ $schedule->day }}</td>
+                                        <td>
+                                            <input type="hidden" name="schedules[{{ $loop->index }}][id]" value="{{ $schedule->id }}">
+                                            <input type="text" name="time[{{ $loop->index }}]" class="form-control" value="{{ $schedule->time }}" {{ auth()->user()->hasRole('admin') ? '' : 'readonly' }}>
+                                        </td>
+                                        <td>
+                                            <input type="text" name="link[{{ $loop->index }}]" class="form-control" value="{{ $schedule->link }}" {{ auth()->user()->hasRole('admin') ? '' : 'readonly' }}>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

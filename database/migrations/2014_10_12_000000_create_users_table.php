@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
             $table->string('country_code')->nullable();
             $table->string('phone_number')->nullable();
             $table->timestamps();
-            $table->engine ='InnoDB';
         });
     }
 

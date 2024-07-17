@@ -11,12 +11,12 @@ class ScheduleController extends Controller
     public function index()
     {
         $schedules = Schedule::all();
-        return view('schedule.index', compact('schedules'));
+        return view('admin.schedule.index', compact('schedules'));
     }
 
     public function create()
     {
-        return view('schedule.create');
+        return view('admin.schedule.create');
     }
 
     public function store(Request $request)
@@ -29,27 +29,29 @@ class ScheduleController extends Controller
 
         Schedule::create($validated);
 
-        return redirect()->route('schedule.index');
+        return redirect()->route('admin.schedule.index');
     }
 
     public function edit($id)
     {
         $schedule = Schedule::findOrFail($id);
-        return view('schedule.edit', compact('schedule'));
+        return view('admin.schedule.edit', compact('schedule'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'date' => 'required|date',
-        ]);
+        $times = $request->input('time');
+        $links = $request->input('link');
 
-        $schedule = Schedule::findOrFail($id);
-        $schedule->update($validated);
+        foreach ($request->input('schedule') as $index => $scheduleData) {
+            $schedule = Schedule::find($scheduleData['id']);
+            $schedule->update([
+                'time' => $times[$index],
+                'link' => $links[$index],
+            ]);
+        }
 
-        return redirect()->route('schedule.index');
+        return redirect()->back()->with('success', 'Eğitim takvimi başarıyla güncellendi.');
     }
 
     public function destroy($id)
@@ -57,6 +59,8 @@ class ScheduleController extends Controller
         $schedule = Schedule::findOrFail($id);
         $schedule->delete();
 
-        return redirect()->route('schedule.index');
+        return redirect()->route('admin.schedule.index');
     }
 }
+
+

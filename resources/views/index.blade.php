@@ -49,7 +49,7 @@
             <!-- Sales stats -->
             <div class="card">
                 <div class="card-header d-sm-flex align-items-sm-center py-sm-0">
-                    <h5 class="py-sm-2 my-sm-1">Çekim İstatistikleri</h5>
+                    <h5 class="py-sm-2 my-sm-1">Çekim İstatistikleri (Hastane)</h5>
                     <div class="mt-2 mt-sm-0 ms-sm-auto">
                         <select class="form-select" id="select_date">
                             <option value="val1" class="highlighted2">-Adana 5 Ocak- Haziran, 1 - Temmuz, 1</option>
@@ -96,7 +96,7 @@
             <!-- Traffic sources -->
             <div class="card">
                 <div class="card-header d-flex align-items-center">
-                    <h5 class="mb-0">Personel İstatistikleri</h5>
+                    <h5 class="mb-0">Personel İstatistikleri (İnsan Kaynakları)</h5>
                     <div class="ms-auto">
                         <label class="form-check form-switch form-check-reverse">
                             <input type="checkbox" class="form-check-input" checked>
@@ -164,11 +164,11 @@
             <!-- Daily financials -->
             <div class="card">
                 <div class="card-header d-flex align-items-center">
-                    <h5 class="mb-0">Finansal Etkinlikler</h5>
+                    <h5 class="mb-0">Finansal Etkinlikler (Muhasebe)</h5>
                     <div class="ms-auto">
                         <label class="form-check form-switch form-check-reverse">
                             <input type="checkbox" class="form-check-input" id="realtime" checked>
-                            <span class="form-check-label">Realtime</span>
+                            <span class="form-check-label">Eş Zamanlı</span>
                         </label>
                     </div>
                 </div>
@@ -185,7 +185,7 @@
                         <div class="flex-fill">
                             Haziran ayına istinaden : İstatistikler <span class="fw-semibold">250.478</span> çekim
                             (Toplam), $10.000.000 hasılat
-                            <div class="text-muted fs-sm">2 hours ago</div>
+                            <div class="text-muted fs-sm">2 saat önce</div>
                         </div>
                     </div>
 
